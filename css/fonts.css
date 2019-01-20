@@ -20,3 +20,15 @@
 .selected {
   color:green;
 }
+
+#searchButton {
+  background-color:#69aa82;
+  padding-top:7px;
+  width:30px;
+  height:30px;
+  color:white;
+}
+
+#searchButton:hover {
+  cursor:pointer;
+}
