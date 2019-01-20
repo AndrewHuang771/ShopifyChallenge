@@ -14,6 +14,7 @@ function arrayify( text ) {
   return array;
 }
 
+//Checks if the object in question is a favorite
 function isFavorite( obj ) {
   for ( let i = 0 ; i < favorites.length; i ++ ) {
     if ( !favorites[i].title.trim().localeCompare( obj.title.trim() ) ) {
@@ -23,6 +24,7 @@ function isFavorite( obj ) {
   return false;
 }
 
+//Searches for an element in an array and if it finds it, removes it from the array
 function searchAndDestroy( victim, crowd ) {
   let target = -1;
   for ( let i = 0; i < crowd.length; i ++ ) {
@@ -35,6 +37,7 @@ function searchAndDestroy( victim, crowd ) {
   }
 }
 
+//Renders the list of search results or list of favorites
 function renderPages( toRender, renderFav ) {
   let $parent;
   let marker = "f";
@@ -85,7 +88,7 @@ function renderPages( toRender, renderFav ) {
   }
 }
 
-
+//Searches the info from the API
 function searchGarbage() {
   let text = document.getElementById( "searchBar" ).value.toLowerCase();
   toRender = [];
@@ -145,6 +148,7 @@ $(document).ready( function() {
     }
   });
 
+  //When user presses a star, either favorite or remove from favorites
   $(document).on( "click", ".star", function(e) {
     let id = e.target.id.substr( 5, e.target.id.length );
     let newFavorite;
