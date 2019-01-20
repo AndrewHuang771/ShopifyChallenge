@@ -1,11 +1,10 @@
-/* apply a natural box layout model to all elements, but allowing components to change */
+
 html {
   box-sizing: border-box;
 }
 *, *:before, *:after {
   box-sizing: inherit;
 }
-
 
 #header {
   margin-top:2vh;
@@ -38,10 +37,6 @@ html {
 #favorite {
   width:80%;
   margin-left: 10%;
-  /* padding-left:10%;
-  padding-right:10%; */
-  /* position:absolute; */
-  /* top:70vh; */
   height:28vh;
   overflow-y: auto;
 }
@@ -60,7 +55,6 @@ html {
 }
 
 .wrapper {
-  /* position:relative; */
   width:100%;
   margin:auto;
   clear:both;
@@ -68,13 +62,11 @@ html {
 }
 
 .titleCard {
-  /* position:absolute; */
   float:left;
   width:35%;
 }
 
 .info {
-  /* position:absolute; */
   float:right;
   width:60%;
 }
