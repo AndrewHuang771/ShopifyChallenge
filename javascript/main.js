@@ -130,7 +130,8 @@ $(document).ready( function() {
   var request = new XMLHttpRequest();
 
   request.open('GET', 'https://secure.toronto.ca/cc_sr_v1/data/swm_waste_wizard_APR?limit=1000', true);
-
+  
+  //Get all the data from the API
   request.onload = function () {
     if ( request.status >= 200 && request.status < 400 ) {
       var data = JSON.parse(this.response);
@@ -153,20 +154,24 @@ $(document).ready( function() {
     let id = e.target.id.substr( 5, e.target.id.length );
     let newFavorite;
 
+    //If the element clicked is in the favorites section, it'll be labelled with an "f"
     if ( $("#" + e.target.id ).parent().attr("id")[0] === "f" ) {
       newFavorite = new Garbage( $( "#ftitle" + id ).text(), $( "#finfo" + id ).html() );
+    //Otherwise it is in the search results section
     } else {
       newFavorite = new Garbage( $( "#mtitle" + id ).text(), $( "#minfo" + id ).html() );
     }
 
+    //If the element is already a favorite, remove it from the favorites list.
     if ( $("#" + e.target.id ).parent().hasClass("selected") || $("#" + e.target.id ).hasClass("selected") ) {
-
       searchAndDestroy( newFavorite.title, favorites );
     } else {
+    //Otherwise add it to the favorites list
       $("#" + e.target.id ).addClass("selected");
       favorites.push( newFavorite );
     }
-
+  
+    //Re-render the pages to reflect the changes
     renderPages( favorites, true );
     renderPages( toRender, false );
   });
